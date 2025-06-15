@@ -39,17 +39,21 @@
                     <label for="Nome" class="text-pink-600 font-bold">Especie</label>
                     <select name="dono" required id="" class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
                         <option value="" selected>Não selecionado</option>
-                        <option value="dono1">Especie</option>
-                        <option value="dono2">Espece3</option>
-                        <option value="dono3">Dono3</option>
+                        <option value="dono1">Cachorro</option>
+                        <option value="dono2">Gato</option>
+                        <option value="dono3">Porquinho da Índia</option>
+                        <option value="dono3">Arara Azul</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
                     <label for="Nome" class="text-pink-600 font-bold">Raça</label>
                     <select name="dono" required id="" class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
                         <option value="" selected>Não selecionado</option>
-                        <option value="dono1">Raça 1</option>
-                        <option value="dono2">Raça 2</option>
+                        <option value="dono1">Cachorro Buldog</option>
+                        <option value="dono2">Cachorro Caramelo</option>
+                        <option value="dono2">Cachorro Husk Siberiano</option>
+                        <option value="dono2">Cachorro Salcisha</option>
+                        <option value="dono2">Gato Preto</option>
                         <option value="dono3">Raça</option>
                     </select>
                 </div>
@@ -57,9 +61,9 @@
                     <label for="Nome" class="text-pink-600 font-bold">Dono</label>
                     <select name="dono" id="" required class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
                         <option value="" selected>Não selecionado</option>
-                        <option value="dono1" class="" >Dono1</option>
-                        <option value="dono2">Dono2</option>
-                        <option value="dono3">Dono3</option>
+                        <option value="dono1" class="" >Davi Soares</option>
+                        <option value="dono2">Sofia Lacabana</option>
+                        <option value="dono3">Linda Nacabur</option>
                     </select>
                 </div>
                 <div class="flex flex-row gap-5 justify-end col-span-2 md:mt-10">

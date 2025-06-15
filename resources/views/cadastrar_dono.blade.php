@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 
@@ -18,16 +19,6 @@
 </body>
 
 <main class="w-full h-full mt-6 flex flex-row px-5">
-    <article class="p-10 w-52 flex items-center justify-center border-2 border-dashed border-pink-600 cursor-pointer">
-        <section class="">
-            <div class="flex flex-col items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-20 text-pink-600">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                  </svg>
-                  <p></p>        
-            </div>
-        </section>
-    </article>
     <article class=" w-full">
         <section class=" flex items-center justify-center">
             <form action="#" method="POST" class="grid grid-cols-2 gap-4">
@@ -36,40 +27,37 @@
                     <input type="text" name="nome" id="nome" placeholder="Nome" required class="p-3 w-lg border-2 border-pink-600 rounded-2xl focus:outline-none text-sm sm:text-base">
                 </div>
                 <div class="flex flex-col">
-                    <label for="Nome" class="text-pink-600 font-bold">Especie</label>
-                    <select name="dono" required id="" class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
-                        <option value="" selected>Não selecionado</option>
-                        <option value="dono1">Especie</option>
-                        <option value="dono2">Espece3</option>
-                        <option value="dono3">Dono3</option>
-                    </select>
+                    <label for="endereço" class="text-pink-600 font-bold">Endereço</label>
+                    <input type="text" name="endereco" id="nome" placeholder="Endereço" required class="p-3 w-lg border-2 border-pink-600 rounded-2xl focus:outline-none text-sm sm:text-base">
                 </div>
                 <div class="flex flex-col">
-                    <label for="Nome" class="text-pink-600 font-bold">Raça</label>
-                    <select name="dono" required id="" class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
-                        <option value="" selected>Não selecionado</option>
-                        <option value="dono1">Raça 1</option>
-                        <option value="dono2">Raça 2</option>
-                        <option value="dono3">Raça</option>
-                    </select>
+                    <label for="telefone" class="text-pink-600 font-bold">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" placeholder="Telefone" required class="p-3 w-lg border-2 border-pink-600 rounded-2xl focus:outline-none text-sm sm:text-base">
                 </div>
                 <div class="flex flex-col">
-                    <label for="Nome" class="text-pink-600 font-bold">Dono</label>
-                    <select name="dono" id="" required class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
-                        <option value="" selected>Não selecionado</option>
-                        <option value="dono1" class="" >Dono1</option>
-                        <option value="dono2">Dono2</option>
-                        <option value="dono3">Dono3</option>
-                    </select>
+                    <label for="cpf" class="text-pink-600 font-bold">CPF</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="CPF" required class="p-3 w-lg border-2 border-pink-600 rounded-2xl focus:outline-none text-sm sm:text-base">
                 </div>
                 <div class="flex flex-row gap-5 justify-end col-span-2 md:mt-10">
                     <a href="{{route('home')}}" class="p-3 bg-red-600 rounded-2xl w-40 text-center text-lg text-white">Voltar</a>
                     <button type="submit" class="p-3 bg-pink-600 cursor-pointer rounded-2xl w-40 text-lg text-white">Cadastrar</button>
                 </div>
-                
             </form>
         </section>
     </article>
 </main>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script>
+        $(function() {
+            // ao carregar a pagina - ONLOAD
+            $('#telefone').mask("(00) 00000-0000") //pega o elemto com ID CPF
+            $('#cpf').mask("000.000.000-00")
+        })
+    </script>
 </html>

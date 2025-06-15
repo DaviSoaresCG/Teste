@@ -18,6 +18,7 @@
             </form>
         </div>
         <hr class="border-pink-600 border-1 mt-8">
+        
     </head>
 </body>
 
