@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="">
+
+    <head class="bg-amber-300 w-full flex items-center justify-center gap-3">
+        <div class="sm:w-full w-60 flex items-center justify-center mt-10 mx-auto">
+            <form action="#" method="post" class="flex flex-row items-center justify-center flex-nowrap gap-2 w-full">
+                @csrf
+                <input type="text" placeholder="Informe o nome do Animal" class="sm:px-4 sm:py-3 px-2 py-1 w-lg border-2 border-pink-600 rounded-2xl focus:outline-none text-sm sm:text-base">
+                <button type="submit" class="sm:p-3 bg-pink-600 p-1 text-sm sm:text-base text-white rounded-r-2xl cursor-pointer">Buscar</button>
+            </form>
+        </div>
+        <hr class="border-pink-600 border-1 mt-8">
+    </head>
+</body>
+
+<main class="w-full h-full mt-6">
+    <article class="w-full items-center justify-center flex flex-row gap-4 flex-wrap">
+        <a href="#" class=" group">
+            <section class="flex flex-row w-72 shadow-2xl rounded-2xl p-2 cursor-pointer group-hover:scale-110 transition-all ease-in duration-200">
+                <div>
+                    <img src="{{asset('assets/img/route.webp')}}" alt="" class="w-40 border-3 border-pink-600 rounded-lg">
+                </div>
+                <div class="flex flex-col gap-2 items-center justify-center w-40">
+                    <p class="text-pink-600 text-lg">Brutos da silva</p>
+                    <p>Buldog</p>
+                </div>
+            </section>
+        </a>
+        <a href="" class=" group ">
+            <section class="flex flex-row w-72 shadow-2xl rounded-2xl p-2 cursor-pointer group-hover:scale-110 transition-all ease-in duration-200">
+                <div>
+                    <img src="{{asset('assets/img/tico.jpg')}}" alt="" class="w-40 border-3 border-pink-600 rounded-lg">
+                </div>
+                <div class="flex flex-col gap-2 items-center justify-center w-40">
+                    <p class="text-pink-600 text-lg">Tico</p>
+                    <p class="">Porquinha da Índia</p>
+                </div>
+            </section>
+        </a>
+        <a href="#" class=" group ">
+            <section class="flex flex-row w-72 shadow-2xl rounded-2xl p-2 cursor-pointer group-hover:scale-110 transition-all ease-in duration-200">
+                <div>
+                    <img src="{{asset('assets/img/nina.jpg')}}" alt="" class="w-40 border-3 border-pink-600 rounded-lg">
+                </div>
+                <div class="flex flex-col gap-2 items-center justify-center w-40">
+                    <p class="text-pink-600 text-lg">Lua</p>
+                    <p>Gato</p>
+                </div>
+            </section>
+        </a>
+        <a href="#" class=" group ">
+            <section class="flex flex-row w-72 shadow-2xl rounded-2xl p-2 cursor-pointer group-hover:scale-110 transition-all ease-in duration-200">
+                <div>
+                    <img src="{{asset('assets/img/lua.jpg')}}" alt="" class="w-40 border-3 border-pink-600 rounded-lg">
+                </div>
+                <div class="flex flex-col gap-2 items-center justify-center w-40">
+                    <p class="text-pink-600 text-lg">Luca</p>
+                    <p>Arara Azul</p>
+                </div>
+            </section>
+        </a>
+        <a href="#" class="group">
+            <section class="flex flex-row w-72 shadow-2xl rounded-2xl p-2 cursor-pointer group-hover:scale-110 transition-all ease-in duration-200">
+                <div>
+                    <img src="{{asset('assets/img/caramelo.webp')}}" alt="" class="max-w-40 border-3 border-pink-600 rounded-lg">
+                </div>
+                <div class="flex flex-col gap-2 items-center justify-center w-40">
+                    <p class="text-pink-600 text-lg">Zé</p>
+                    <p>Caramelo</p>
+                </div>
+            </section>
+        </a>
+    </article>
+</main>
+
+</html>
