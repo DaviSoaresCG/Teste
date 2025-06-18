@@ -22,6 +22,8 @@ Route::middleware([Logado::class])->group(function(){
     Route::get('/prontuario', function(){
         return view('prontuario');
     })->name('prontuario');
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 Route::middleware([Guest::class])->group(function(){

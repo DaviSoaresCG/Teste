@@ -18,7 +18,7 @@
 </body>
 
 <main class="w-full h-full mt-6 flex flex-row px-5">
-    <article class="p-10 w-52 flex items-center justify-center border-2 border-dashed border-pink-600 cursor-pointer">
+    <article class="p-10 w-52 max-h-52 flex items-center justify-center border-2 border-dashed border-pink-600 cursor-pointer">
         <section class="">
             <div class="flex flex-col items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-20 text-pink-600">
@@ -45,22 +45,18 @@
                         <option value="dono3">Castração</option>
                     </select>
                 </div>
+                <div class="flex flex-col">
+                    <label for="Nome" class="text-pink-600 font-bold">Data</label>
+                    <input type="date" name="data" id="data" class="p-2 focus:outline-none border-2 border-pink-600 rounded">
+                </div>
                 <div class="flex flex-col col-span-2">
                     <label for="Nome" class="text-pink-600 font-bold">Observações</label>
                     <textarea name="observacao" id="observacao" cols="20" rows="10" class="w-full focus:outline-none border-pink-600 border-2 rounded h-40 p-2"></textarea>
                 </div>
-                <div class="flex flex-col">
-                    <label for="Nome" class="text-pink-600 font-bold">Dono</label>
-                    <select name="dono" id="" required class="w-lg p-3 bg-pink-600 text-white rounded-2xl">
-                        <option value="" selected>Não selecionado</option>
-                        <option value="dono1" class="" >Davi Soares</option>
-                        <option value="dono2">Sofia Lacabana</option>
-                        <option value="dono3">Linda Nacabur</option>
-                    </select>
-                </div>
+                
                 <div class="flex flex-row gap-5 justify-end col-span-2 md:mt-10">
                     <a href="{{route('home')}}" class="p-3 bg-red-600 rounded-2xl w-40 text-center text-lg text-white">Voltar</a>
-                    <button type="submit" class="p-3 bg-pink-600 cursor-pointer rounded-2xl w-40 text-lg text-white">Cadastrar</button>
+                    <button type="submit" class="p-3 bg-pink-600 cursor-pointer rounded-2xl w-40 text-lg text-white">Registrar</button>
                 </div>
                 
             </form>
