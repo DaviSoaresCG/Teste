@@ -10,12 +10,26 @@
 
 <body class="">
 
-    <head class="bg-amber-300 w-full flex items-center justify-center gap-3">
-        <div class="sm:w-full flex items-center justify-center mt-10">
+    <header class="w-full flex items-center justify-center gap-3">
+        <div class="sm:w-full flex items-center justify-between px-5 mt-10">
             <h1 class="text-4xl text-pink-600 font-bold">Cadastrar Dono</h1>
+            <div class="">
+                <ul class="flex flex-row flex-wrap gap-4">
+                    <li><a href="{{ route('home') }}" class="hover:text-pink-600 ">Home</a></li>
+                    <li><a href="{{ route('cadastrar') }}" class="hover:text-pink-600 ">Cadastrar Animal</a></li>
+                    <li><a href="{{ route('cadastrar_dono') }}" class="hover:text-pink-600 ">Cadastrar Dono</a></li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="cursor-pointer hover:text-pink-600 ">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <hr class="border-pink-600 border-1 mt-8">
-    </head>
+    </header>
+    <hr class="border-pink-600 border-1 mt-8">
+
     <main class="w-full h-full mt-6 flex flex-row px-5">
         <article class=" w-full">
             <section class=" flex items-center justify-center">

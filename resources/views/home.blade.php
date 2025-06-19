@@ -9,7 +9,7 @@
 
 <body class="">
 
-    <head class="w-full flex items-center justify-center gap-3">
+    <header class="w-full flex items-center justify-center gap-3">
         <div class="sm:w-full w-60 flex items-center flex-col sm:flex-row gap-2 justify-between mt-10 px-10">
             <form action="#" method="post" class="flex flex-row items-center flex-nowrap gap-2 ">
                 @csrf
@@ -17,20 +17,24 @@
                 <button type="submit" class="sm:p-3 bg-pink-600 p-1 text-sm sm:text-base text-white rounded-r-2xl cursor-pointer">Buscar</button>
             </form>
             <div class="">
-                <ul>
+                <ul class="flex flex-row flex-wrap gap-4">
+                    <li><a href="{{ route('home') }}" class="hover:text-pink-600 ">Home</a></li>
+                    <li><a href="{{ route('cadastrar') }}" class="hover:text-pink-600 ">Cadastrar Animal</a></li>
+                    <li><a href="{{ route('cadastrar_dono') }}" class="hover:text-pink-600 ">Cadastrar Dono</a></li>
                     <li>
-                        <form action="{{route('logout')}}" method="post">
+                        <form action="{{ route('logout') }}" method="post">
                             @csrf
-                            <button type="submit" class="cursor-pointer">Sair</button>
+                            <button type="submit" class="cursor-pointer hover:text-pink-600 ">Sair</button>
                         </form>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <hr class="border-pink-600 border-1 mt-8">
         
-    </head>
+    </header>
+    <hr class="border-pink-600 border-1 mt-8">
+
     <main class="w-full h-full mt-6">
         <article class="w-full items-center justify-center flex flex-row gap-4 flex-wrap">
             <a href="#" class=" group">
