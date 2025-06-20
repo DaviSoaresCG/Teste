@@ -35,6 +35,7 @@ class ProdutoController extends Controller
         return redirect()->route('venda');
     }
 
+    // API
     public function preco($id)
     {
         $produto = Produto::findOrFail($id);

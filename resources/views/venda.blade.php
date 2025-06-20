@@ -68,7 +68,7 @@
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // mostrar o preço unitario
+        // mostrar o preço unitario atraves de API
         $('#produtosContainer').on('change', 'select[name="produto[]"]', function() {
             const select = $(this);
             const valInput = select.closest('.produto-row').find('input[name="valor_unitario[]"]');
