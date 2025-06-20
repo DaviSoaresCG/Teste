@@ -9,7 +9,8 @@ class ProdutoController extends Controller
 {
     public function cadastrar()
     {
-        return view('cadastrar_produto');
+        $titulo = 'Cadastrar Produto';
+        return view('cadastrar_produto', compact('titulo'));
     }
 
     public function cadastrarSubmit(Request $request)

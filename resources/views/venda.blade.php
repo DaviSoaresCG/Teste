@@ -1,8 +1,10 @@
 @extends('layouts.main_layout')
 @section('conteudo')
+    <p class="text-2xl text-pink-600">{{ $titulo }}</p>
+
     <main class="w-full h-full mt-6 flex flex-col px-5">
         @error('parcelas')
-            <p class="p-3 w-52 flex items-center rounded justify-center bg-red-600 text-white">{{ $message }}</p>
+            <p class="p-3 w-52 flex items-center rounded justify-center bg-red-600 text-white">Erro: {{ $message }}</p>
         @enderror
         <article class=" w-full">
             <section class=" flex items-center justify-center">

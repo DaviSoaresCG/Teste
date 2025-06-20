@@ -1,11 +1,13 @@
 @extends('layouts.main_layout')
 @section('conteudo')
+    <p class="text-2xl text-pink-600">{{ $titulo }}</p>
+
     <main class="w-full h-full mt-6 flex flex-row px-5">
 
         <article class=" w-full">
             <section class=" flex items-center justify-center flex-col">
                 @error('parcelas')
-                    <p>{{ $message }}</p>
+                    <p>Erro:{{ $message }}</p>
                 @enderror
                 <div class="">
                     <p>Total da Venda: <strong>R$ {{ number_format($valor_total, 2, ',', '.') }}</strong></p>
@@ -48,16 +50,13 @@
     <script>
         // gerar parcelas
         document.getElementById('btnGerar').addEventListener('click', function() {
+            // formatar o valor
             const total = parseFloat("{{ $valor_total }}".replace(/,/g, '.'));
+
             const n = parseInt(document.getElementById('numParcelas').value);
             const container = document.getElementById('parcelaContainer');
             container.innerHTML = '';
             document.getElementById('numParcelasHidden').value = n;
-
-            if (isNaN(total) || total <= 0 || isNaN(n) || n <= 0) {
-                container.innerHTML = '<p class="text-red-600">Total ou número de parcelas inválido.</p>';
-                return;
-            }
 
             const base = Math.floor((total / n) * 100) / 100;
             let diff = Math.round((total - base * n) * 100) / 100;
@@ -102,14 +101,14 @@
             const lastEl = valorEls[valorEls.length - 1];
             let lastVal = parseFloat(lastEl.value) || 0;
 
-            // Se a diferença for negativa (excedeu o total)
+            // verificar se a soma bate
             if (soma > total) {
                 const excess = soma - total;
                 const adjusted = Math.max(0, lastVal - excess);
                 lastEl.value = adjusted.toFixed(2);
 
             } else if (soma < total) {
-                // Se ainda faltar, soma na última
+                
                 lastEl.value = (lastVal + diff).toFixed(2);
             }
         });

@@ -18,8 +18,8 @@ class AuthController extends Controller
         ];
 
         $request->validate([
-            'email' => ['required', 'email'],
-            'senha' => ['required']
+            'email' => 'required|email',
+            'senha' => 'required'
         ], $mensagens);
 
         $credenciais = [
@@ -40,7 +40,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return view('login');
+        return redirect()->route('login');
     }
 
     public function login()

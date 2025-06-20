@@ -1,5 +1,6 @@
 @extends('layouts.main_layout')
 @section('conteudo')
+<p class="text-2xl text-pink-600">{{$titulo}}</p>
 
     <main class="w-full h-full mt-6 flex flex-row px-5">
         <article class=" w-full">

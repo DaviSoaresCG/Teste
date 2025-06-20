@@ -17,6 +17,7 @@ class Guest
     public function handle(Request $request, Closure $next): Response
     {
 
+        // se estiver logado, nao pode acessar a area de login
         if(Auth::check()){
             return redirect()->route('home');
         }

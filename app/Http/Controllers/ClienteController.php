@@ -9,7 +9,8 @@ class ClienteController extends Controller
 {
     public function cadastrar()
     {
-        return view('cadastrar_cliente');
+        $titulo = 'Cadastrar Cliente';
+        return view('cadastrar_cliente', compact('titulo'));
     }
 
     public function cadastrarSubmit(Request $request)

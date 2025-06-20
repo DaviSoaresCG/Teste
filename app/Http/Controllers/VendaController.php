@@ -8,7 +8,6 @@ use App\Models\Produto;
 use App\Models\Venda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
 
 class VendaController extends Controller
 {
@@ -18,15 +17,16 @@ class VendaController extends Controller
         
         $vendas = Venda::all();
         $clientes = Cliente::all();
-
-        return view('vendas', compact('vendas', 'clientes'));
+        $titulo = 'Todas as Vendas';
+        return view('vendas', compact('vendas', 'clientes', 'titulo'));
     }
 
     public function create()
     {
         $clientes = Cliente::all();
         $produtos = Produto::all();
-        return view('venda', compact('clientes', 'produtos'));
+        $titulo = 'Relizar Venda';
+        return view('venda', compact('clientes', 'produtos', 'titulo'));
     }
 
     public function formaDePagamento(Request $request)
@@ -39,6 +39,7 @@ class VendaController extends Controller
             'quantidade' => 'required',
             'valor_unitario' => 'required'
         ]);
+        $titulo = 'Personalização das Parcelas';
 
         $valor_total = 0;
         $produtos = $request->produto;
@@ -50,7 +51,7 @@ class VendaController extends Controller
             $valor_total += $request->quantidade[$i] * $valor;
         }
 
-        return view('parcelas', compact('valor_total', 'produtos', 'cliente', 'valor_unitario', 'quantidade'));
+        return view('parcelas', compact('valor_total', 'produtos', 'cliente', 'valor_unitario', 'quantidade', 'titulo'));
     }
 
     public function finalizarVenda(Request $request)
@@ -79,6 +80,7 @@ class VendaController extends Controller
             'data_venda' => now()
         ]);
 
+        // utilizando pivot do laravel
         $data = [];
         foreach ($request->produtos as $i => $id) {
             $data[$id] = [
@@ -89,6 +91,7 @@ class VendaController extends Controller
 
         $venda->produtos()->attach($data);
 
+        // adicionando as parcelas no banco
         for ($i = 0; $i < count($request->parcelas); $i++) {
             $parcela = Parcela::create([
                 'venda_id' => $venda->id,
@@ -105,11 +108,17 @@ class VendaController extends Controller
     {
         $venda = Venda::with('cliente')->findOrFail($id);
         $clientes = Cliente::all();
-        return view('edit', compact('venda', 'clientes'));
+        $titulo = 'Editar Venda (Cliente)';
+        return view('edit', compact('venda', 'clientes', 'titulo'));
     }
 
     public function editSubmit(Request $request)
     {
+        $request->validate([
+            'vendaId' => 'required',
+            'cliente' => 'required'
+        ]);
+
         $venda = Venda::findOrFail($request->vendaId);
         $venda->cliente_id = $request->cliente;
         $venda->save();

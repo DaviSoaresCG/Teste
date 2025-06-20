@@ -12,33 +12,31 @@
     <main class="w-72 m-auto sm:w-96">
         <div class="text-center">
             <h1 class="font-bold text-2xl ">Cadastrar</h1>
-            <p>Clique aqui para realizar o <a href="{{route('login')}}" class="text-blue-600">Login</a></p>
+            <p>Clique aqui para realizar o <a href="{{ route('login') }}" class="text-blue-600">Login</a></p>
         </div>
         <br>
-        <form action="{{route('cadastrar.submit')}}" method="POST">
+        <form action="{{ route('cadastrar.submit') }}" method="POST">
             @csrf
 
-        <section class="space-y-4 bg-white rounded-2xl w-full h-full shadow-lg px-8 py-10">
-            <div class="flex flex-col">
-                <label for="email" class="ml-1 ">Email</label>
-                <input type="text" name="email"
-                    class=" border-2 border-gray-500 rounded-2xl py-2 px-2 00">
-                @error('email')
-                    <p class="text-sm text-red-500">{{$message}}</p>
-                @enderror
-            </div>
-            <div class="flex flex-col">
-                <label for="senha" class="ml-1 ">Senha</label>
-                <input type="text" name="senha"
-                    class="border-2  border-gray-500 rounded-2xl py-2 px-2 00">
-            </div>
-            <div class="flex gap-2 flex-col">
-                <button class="cursor-pointer text-white bg-pink-600 w-full rounded-2xl px-4 py-2 hover:bg-blue-600 
+            <section class="space-y-4 bg-white rounded-2xl w-full h-full shadow-lg px-8 py-10">
+                <div class="flex flex-col">
+                    <label for="email" class="ml-1 ">Email</label>
+                    <input type="text" name="email" class=" border-2 border-gray-500 rounded-2xl py-2 px-2 00">
+                    @error('email')
+                        <p class="text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="flex flex-col">
+                    <label for="senha" class="ml-1 ">Senha</label>
+                    <input type="text" name="senha" class="border-2  border-gray-500 rounded-2xl py-2 px-2 00">
+                </div>
+                <div class="flex gap-2 flex-col">
+                    <button
+                        class="cursor-pointer text-white bg-pink-600 w-full rounded-2xl px-4 py-2 hover:bg-blue-600 
                     transition-all duration-300 ease mt-2">Criar
-                </button>
+                    </button>
         </form>
-
-            </div>
+        </div>
         </section>
     </main>
 </body>

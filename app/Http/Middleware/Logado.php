@@ -16,6 +16,7 @@ class Logado
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // se nao estiver logado, só pode acessar o login
         if(!Auth::check()){
             return redirect()->route('login');
         }
