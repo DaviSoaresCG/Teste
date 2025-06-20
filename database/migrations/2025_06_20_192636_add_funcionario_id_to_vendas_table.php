@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->string('nome');
-            $table->string('cargo');
-            $table->string('email')->unique();
-            $table->string('senha');
-            $table->timestamps();
+        Schema::table('vendas', function (Blueprint $table) {
+            $table->unsignedBigInteger('fucionario_id');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funcionarios');
+        Schema::table('vendas', function (Blueprint $table) {
+            //
+        });
     }
 };

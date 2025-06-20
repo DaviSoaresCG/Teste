@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tratamentos', function (Blueprint $table) {
+        Schema::create('funcionarios', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('nome', 255);
-            $table->string('descricao');
+            $table->string('email');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tratamentos');
+        Schema::dropIfExists('funcionarios');
     }
 };

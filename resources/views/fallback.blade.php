@@ -9,6 +9,6 @@
 </head>
 <body class="flex flex-col items-center justify-center w-full h-screen">
     <p>404 | Pagina nao encontrada</p>
-    <a href="{{route('home')}}" class="text-blue-600">Clique aqui para voltar pro sistema</a>
+    <a href="{{route('venda')}}" class="text-blue-600">Clique aqui para voltar pro sistema</a>
 </body>
 </html>

@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('especies', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->string('nome', 255);
-            $table->timestamps();
+        Schema::table('vendas', function (Blueprint $table) {
+            $table->foreign('cliente_id')->references('id')->on('clientes');
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('especies');
+        Schema::table('vendas', function (Blueprint $table) {
+            $table->dropForeign('cliente_id');
+        });
     }
 };

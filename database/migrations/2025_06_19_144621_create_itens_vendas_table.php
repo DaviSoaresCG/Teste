@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prontuarios', function (Blueprint $table) {
+        Schema::create('produto_venda', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('observacoes');
-            $table->unsignedBigInteger('tratamento_id');
-            $table->unsignedBigInteger('animal_id');
-            $table->dateTime('data');
+            $table->foreignId('venda_id')->constrained()->onDelete('cascade');
+            $table->foreignId('produto_id')->constrained()->onDelete('cascade');
+            $table->integer('quantidade');
+            $table->decimal('valor_unitario', 10, 2);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prontuarios');
+        Schema::dropIfExists('venda_produto');
     }
 };

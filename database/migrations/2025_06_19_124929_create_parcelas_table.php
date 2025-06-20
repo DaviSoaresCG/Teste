@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('racas', function (Blueprint $table) {
+        Schema::create('parcelas', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('nome', 255);
+            $table->unsignedBigInteger('venda_id');
+            $table->integer('numero_parcela');
+            $table->decimal('valor', 10, 2);
+            $table->date('data_vencimento');
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('racas');
+        Schema::dropIfExists('parcelas');
     }
 };

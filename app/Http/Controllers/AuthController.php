@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credenciais)) {
             $request->session()->regenerate();
-            return redirect()->route('home');
+            return redirect()->route('venda');
         }
 
         return  redirect()->back()->withErrors(['email' => 'Credenciais Inválidas']);
@@ -40,12 +40,39 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login');
+        return view('login');
     }
 
     public function login()
     {
         return view('login');
+    }
+
+    public function cadastrar()
+    {
+        return view('cadastrar');
+    }
+
+    public function cadastrarSubmit(Request $request)
+    {
+        // validar as entradas
+        $mensagens = [
+            'required' => 'Preencha o Campo',
+            'email.email' => 'Digite um email válido',
+            'email.unique' => 'Ja existe um email'
+        ];
+
+        $request->validate([
+            'email' => ['required', 'email', 'unique:funcionarios'],
+            'senha' => ['required']
+        ], $mensagens);
+
+        $adminNovo = Funcionario::create([
+            'email' => $request->email,
+            'password' => Hash::make($request->senha)
+        ]);
+
+        return redirect()->route('login');
     }
 
     

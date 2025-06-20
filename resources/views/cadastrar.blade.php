@@ -11,11 +11,11 @@
 <body class="h-screen w-screen flex items-center justify-center 50 bg-gray-200  p-3">
     <main class="w-72 m-auto sm:w-96">
         <div class="text-center">
-            <h1 class="font-bold text-2xl ">Login</h1>
-            <p>Se estiver realizando a avaliação do teste, <a href="{{route('cadastrar')}}" class="text-blue-600">clique aqui para criar um login</a></p>
+            <h1 class="font-bold text-2xl ">Cadastrar</h1>
+            <p>Clique aqui para realizar o <a href="{{route('login')}}" class="text-blue-600">Login</a></p>
         </div>
         <br>
-        <form action="{{route('loginSubmit')}}" method="POST">
+        <form action="{{route('cadastrar.submit')}}" method="POST">
             @csrf
 
         <section class="space-y-4 bg-white rounded-2xl w-full h-full shadow-lg px-8 py-10">
@@ -34,7 +34,7 @@
             </div>
             <div class="flex gap-2 flex-col">
                 <button class="cursor-pointer text-white bg-pink-600 w-full rounded-2xl px-4 py-2 hover:bg-blue-600 
-                    transition-all duration-300 ease mt-2">Login
+                    transition-all duration-300 ease mt-2">Criar
                 </button>
         </form>
 
