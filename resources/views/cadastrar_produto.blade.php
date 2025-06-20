@@ -3,7 +3,7 @@
     <main class="w-full h-full mt-6 flex flex-row px-5">
         <article class=" w-full">
             <section class=" flex items-center justify-center">
-                <form action="{{ route('cadastrar_produto_submit') }}" method="POST" class="grid grid-cols-2 gap-4">
+                <form action="{{ route('produto.cadastrar') }}" method="POST" class="grid grid-cols-2 gap-4">
                     @csrf
                     <div class=" flex flex-col">
                         <label for="Nome" class="text-pink-600 font-bold">Nome Produto:</label>

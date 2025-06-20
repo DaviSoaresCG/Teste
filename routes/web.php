@@ -4,20 +4,19 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\VendaController;
-use App\Http\Middleware\Authe;
 use App\Http\Middleware\Guest;
 use App\Http\Middleware\Logado;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([Logado::class])->group(function () {
 
-    Route::get('/cadastrar-produto', [ProdutoController::class, 'cadastrar'])->name('cadastrar_produto');
-    Route::post(('/cadastrar-produto'), [ProdutoController::class, 'cadastrarSubmit'])->name('cadastrar_produto_submit');
+    Route::get('/cadastrar-produto', [ProdutoController::class, 'cadastrar'])->name('produto.cadastrar');
+    Route::post(('/cadastrar-produto'), [ProdutoController::class, 'cadastrarSubmit'])->name('produto.cadastrar.submit');
     Route::get('/produto/preco/{id}', [ProdutoController::class, 'preco'])->name('produto.preco');
 
 
-    Route::get('/cadastrar-cliente', [ClienteController::class, 'cadastrar'])->name('cadastrar_cliente');
-    Route::post('/cadastrar-cliente', [ClienteController::class, 'cadastrarSubmit'])->name('cadastrar_cliente_submit');
+    Route::get('/cadastrar-cliente', [ClienteController::class, 'cadastrar'])->name('cliente.cadastrar');
+    Route::post('/cadastrar-cliente', [ClienteController::class, 'cadastrarSubmit'])->name('cliente.cadastrar_submit');
 
     Route::get('/', [VendaController::class, 'index'])->name('venda');
     Route::get('/venda', [VendaController::class, 'create'])->name('venda.create');
