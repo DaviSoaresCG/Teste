@@ -18,8 +18,6 @@ return new class extends Migration
             $table->decimal('total', 10, 2);
             $table->dateTime('data_venda');
             $table->timestamps();
-
-            
         });
     }
 
@@ -28,11 +26,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vendas');
-        
+
         Schema::table('vendas', function (Blueprint $table) {
             $table->dropConstrainedForeignId('cliente_id');
-            $table->dropConstrainedForeignId('fucionario_id');
+            $table->dropConstrainedForeignId('funcionario_id');
         });
+        Schema::dropIfExists('vendas');
+
     }
 };

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venda extends Model
 {
-    protected $fillable = ['cliente_id', 'total', 'data_venda', 'fucionario_id'];
+    protected $fillable = ['cliente_id', 'total', 'data_venda', 'funcionario_id'];
     public function produtos()
     {
         return $this->belongsToMany(Produto::class)

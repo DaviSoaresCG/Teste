@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parcelas', function (Blueprint $table) {
+        Schema::create('produto_venda', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('numero_parcela');
             $table->foreignId('venda_id')->constrained()->onDelete('cascade');
-            $table->decimal('valor', 10, 2);
-            $table->date('data_vencimento');
+            $table->foreignId('produto_id')->constrained()->onDelete('cascade');
+            $table->integer('quantidade');
+            $table->decimal('valor_unitario', 10, 2);
             $table->timestamps();
-
         });
     }
 
@@ -27,10 +26,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parcelas');
         
-        Schema::table('parcelas', function (Blueprint $table) {
+        Schema::table('produto_venda', function(Blueprint $table){
             $table->dropConstrainedForeignId('venda_id');
+            $table->dropConstrainedForeignId('produto_id');
         });
+        Schema::dropIfExists('produto_venda');
+
+        
     }
 };

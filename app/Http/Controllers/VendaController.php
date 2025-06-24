@@ -76,7 +76,7 @@ class VendaController extends Controller
         $venda = Venda::create([
             'cliente_id' => $request->cliente,
             'total' => $request->venda_total,
-            'fucionario_id' => Auth::user()->id,
+            'funcionario_id' => Auth::user()->id,
             'data_venda' => now()
         ]);
 
