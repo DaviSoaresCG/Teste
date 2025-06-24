@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('parcelas', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->unsignedBigInteger('venda_id');
             $table->integer('numero_parcela');
+            $table->foreignId('venda_id')->constrained()->onDelete('cascade');
             $table->decimal('valor', 10, 2);
             $table->date('data_vencimento');
             $table->timestamps();
+
         });
     }
 
@@ -27,5 +28,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('parcelas');
+        
+        Schema::table('parcelas', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('venda_id');
+        });
     }
 };

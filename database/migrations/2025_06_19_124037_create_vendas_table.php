@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->unsignedBigInteger('cliente_id');
+            $table->foreignId('funcionario_id')->constrained()->onDelete('cascade');
+            $table->foreignId('cliente_id')->constrained()->onDelete('cascade');
             $table->decimal('total', 10, 2);
             $table->dateTime('data_venda');
             $table->timestamps();
+
+            
         });
     }
 
@@ -26,5 +29,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('vendas');
+        
+        Schema::table('vendas', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('cliente_id');
+            $table->dropConstrainedForeignId('fucionario_id');
+        });
     }
 };
